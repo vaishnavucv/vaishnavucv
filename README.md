@@ -1,5 +1,5 @@
 # 💫 About Me:
-A Cyber Security Consultant / VAPT (Vulnerability Assessment and Penetration Tester)<br>With 5+years of experience in cybersecurity with hands-on experience/knowledge<br>in Web Applications, Network & Mobile Application Security, IoT security, API Testing, Cryptography,<br>Cyber Awareness,IDS/IPS, Threat Hunting & Analysis, Dark Web, Infrastructure Security Posture Reviews,<br>Vulnerability Assessment, Malware Analysis, and Bug Bounty.
+A Cyber Security Consultant / VAPT (Vulnerability Assessment and Penetration Tester)<br>With 6+years of experience in cybersecurity with hands-on experience/knowledge<br>in Web Applications, Network & Mobile Application Security, IoT security, API Testing, Cryptography,<br>Cyber Awareness,IDS/IPS, Threat Hunting & Analysis, Dark Web, Infrastructure Security Posture Reviews,<br>Vulnerability Assessment, Malware Analysis, and Bug Bounty.
 
 
 ## 🌐 Socials:
