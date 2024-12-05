@@ -1,57 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Resource Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Bezel Iframe</title>
     <style>
-        body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+        html, body {
+            height: 100%;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
+        }
+        iframe {
+            border: none;
+            width: 100vw;
             height: 100vh;
-            text-align: center;
-        }
-        .icon {
-            height: 50px;
-            width: 170px;
-            vertical-align: middle;
-        }
-        a {
-            color: white;
-        }
-        @media (max-width: 600px) {
-            body {
-                font-size: 14px;
-            }
-            .icon {
-                height: 20px;
-                width: 150px;
-            }
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to Our Resource Page</h1>
-    <p>This page is used to display URLs of resources and tools.</p>
-
-    <!-- Display the Instagram URL with an icon -->
-    <p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Nessus-Professional-FullColor-RGB.svg/240px-Nessus-Professional-FullColor-RGB.svg.png" alt="Instagram Icon" class="icon" />
-    <p/>
-    
-    <!-- Button to open Instagram URL in a new tab -->
-    <button onclick="window.open('https://20.197.10.105:80', '_blank')">Open Nessus Professional Vulnerability Scanner in New Tab</button>
-
-    <!-- Link to Discord with an icon -->
-    <p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Discord_icon.svg" alt="." class="icon" />
-        For any queries, Connect >==>: 
-        <a href="https://discord.gg/umhbBVQ5ny" target="_blank">Join Our Discord</a>
-    </p>
+    <iframe src="http://34.47.237.190/" allowfullscreen></iframe>
 </body>
 </html>
