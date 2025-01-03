@@ -3,40 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Webhook Test</title>
+    <title>Discord Webhook</title>
 </head>
 <body>
     <h1>Send Message to Discord Webhook</h1>
-    <button id="sendMessage">Send Message</button>
+    <input type="text" id="message" placeholder="Enter your message">
+    <button onclick="sendMessage()">Send</button>
 
     <script>
-        document.getElementById('sendMessage').addEventListener('click', () => {
-            const webhookUrl = 'https://discord.com/api/webhooks/1300419867874299984/VqKm90a23vknZlpEqizjR8UwhAOWmIEp-FciPS_OJ6tpmuGe6b-2WZ5l1CZlk0eFOAzT';
-            
-            const message = {
-                content: "Hello, this is a test message from my GitHub-hosted page!",
-                username: "Webhook Test",
-            };
+        async function sendMessage() {
+            const webhookUrl = "https://discord.com/api/webhooks/1300419867874299984/VqKm90a23vknZlpEqizjR8UwhAOWmIEp-FciPS_OJ6tpmuGe6b-2WZ5l1CZlk0eFOAzT";
+            const messageContent = document.getElementById('message').value;
 
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(message),
-            })
-            .then(response => {
+            if (!messageContent) {
+                alert('Please enter a message!');
+                return;
+            }
+
+            const payload = JSON.stringify({ content: messageContent });
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: payload
+                });
+
                 if (response.ok) {
                     alert('Message sent successfully!');
                 } else {
-                    alert('Failed to send message.');
+                    alert('Failed to send message!');
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while sending the message.');
-            });
-        });
+            } catch (error) {
+                console.error('Error sending webhook:', error);
+                alert('Error sending message!');
+            }
+        }
     </script>
 </body>
 </html>
