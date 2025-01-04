@@ -25,19 +25,67 @@ term.open(terminalContainer);
 // Auto-fit the terminal to the container
 fitAddon.fit();
 
-// Simulate a Linux-like prompt
-term.write("kali@web-terminal:~$ ");
+// Simulated file structure for `ls` and `cd`
+let currentDirectory = "~";
+const fileSystem = {
+  "~": ["Desktop", "Documents", "Downloads", "Music", "Pictures", "Videos"],
+  "~/Documents": ["file1.txt", "file2.txt"],
+};
 
-// Handle input
+// Simulated commands and responses
+const commands = {
+  pwd: () => currentDirectory,
+  clear: () => {
+    term.clear();
+    return null; // No output for clear
+  },
+  ls: () => fileSystem[currentDirectory]?.join(" ") || "No such directory",
+  cd: (dir) => {
+    if (dir === "~") {
+      currentDirectory = "~";
+    } else if (fileSystem[`${currentDirectory}/${dir}`]) {
+      currentDirectory += `/${dir}`;
+    } else {
+      return `bash: cd: ${dir}: No such file or directory`;
+    }
+    return null; // No output for successful cd
+  },
+};
+
+// Display prompt
+function displayPrompt() {
+  term.write(`\r\nkali@web-terminal:${currentDirectory}$ `);
+}
+
+// Handle input and command execution
 term.onData((data) => {
-  // Handle Enter key
   if (data === "\r") {
-    term.write("\r\nkali@web-terminal:~$ ");
+    // Handle Enter key
+    const input = buffer.trim();
+    const [command, ...args] = input.split(" ");
+    const output = commands[command]?.(args.join(" ")) || `bash: ${command}: command not found`;
+
+    if (output !== null) {
+      term.write(`\r\n${output}`);
+    }
+    buffer = ""; // Clear buffer after executing the command
+    displayPrompt();
+  } else if (data === "\u007F") {
+    // Handle Backspace
+    if (buffer.length > 0) {
+      buffer = buffer.slice(0, -1);
+      term.write("\b \b");
+    }
   } else {
-    // Echo typed characters
+    // Append input to buffer
+    buffer += data;
     term.write(data);
   }
 });
+
+// Initialize terminal
+let buffer = "";
+displayPrompt();
 
 // Resize terminal on window resize
 window.addEventListener("resize", () => fitAddon.fit());
