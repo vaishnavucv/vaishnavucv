@@ -1,91 +1,88 @@
 // script.js
-
-// Import Xterm.js and Fit Addon
-const terminalContainer = document.getElementById("terminal");
-
-// Initialize the terminal
+const { Terminal } = window;
 const term = new Terminal({
   theme: {
-    background: "#282a36",
-    foreground: "#f8f8f2",
-    cursor: "#f8f8f2",
+    background: "#282a36", // Dracula Background
+    foreground: "#f8f8f2", // Text Color
+    cursor: "#f8f8f2",     // Cursor Color
   },
-  cursorBlink: true,
-  cols: 80,
-  rows: 24,
 });
 
-// Fit Addon to auto-resize the terminal
-const fitAddon = new FitAddon.FitAddon();
-term.loadAddon(fitAddon);
+term.open(document.getElementById("terminal"));
 
-// Attach terminal to the DOM
-term.open(terminalContainer);
-
-// Auto-fit the terminal to the container
-fitAddon.fit();
-
-// Simulated file structure for `ls` and `cd`
-let currentDirectory = "~";
-const fileSystem = {
-  "~": ["Desktop", "Documents", "Downloads", "Music", "Pictures", "Videos"],
-  "~/Documents": ["file1.txt", "file2.txt"],
-};
-
-// Simulated commands and responses
-const commands = {
-  pwd: () => currentDirectory,
-  clear: () => {
-    term.clear();
-    return null; // No output for clear
-  },
-  ls: () => fileSystem[currentDirectory]?.join(" ") || "No such directory",
-  cd: (dir) => {
-    if (dir === "~") {
-      currentDirectory = "~";
-    } else if (fileSystem[`${currentDirectory}/${dir}`]) {
-      currentDirectory += `/${dir}`;
-    } else {
-      return `bash: cd: ${dir}: No such file or directory`;
-    }
-    return null; // No output for successful cd
+const filesystem = {
+  '/': {
+    type: 'dir',
+    contents: {
+      home: { type: 'dir', contents: {} },
+      var: { type: 'dir', contents: {} },
+      etc: { type: 'dir', contents: {} },
+      file1: { type: 'file', content: '' },
+    },
   },
 };
 
-// Display prompt
-function displayPrompt() {
-  term.write(`\r\nkali@web-terminal:${currentDirectory}$ `);
+let currentDir = '/';
+
+function listDir(path) {
+  const dir = resolvePath(path);
+  if (dir && dir.type === 'dir') {
+    return Object.keys(dir.contents).join('\n');
+  }
+  return `ls: cannot access '${path}': No such file or directory`;
 }
 
-// Handle input and command execution
-term.onData((data) => {
-  if (data === "\r") {
-    // Handle Enter key
-    const input = buffer.trim();
-    const [command, ...args] = input.split(" ");
-    const output = commands[command]?.(args.join(" ")) || `bash: ${command}: command not found`;
+function resolvePath(path) {
+  const parts = path.split('/').filter(Boolean);
+  let node = filesystem['/'];
 
-    if (output !== null) {
-      term.write(`\r\n${output}`);
+  for (const part of parts) {
+    if (node.contents[part]) {
+      node = node.contents[part];
+    } else {
+      return null;
     }
-    buffer = ""; // Clear buffer after executing the command
-    displayPrompt();
-  } else if (data === "\u007F") {
-    // Handle Backspace
-    if (buffer.length > 0) {
-      buffer = buffer.slice(0, -1);
-      term.write("\b \b");
-    }
-  } else {
-    // Append input to buffer
-    buffer += data;
-    term.write(data);
+  }
+  return node;
+}
+
+function processCommand(input) {
+  const [command, ...args] = input.split(' ');
+  switch (command) {
+    case 'ls':
+      return listDir(currentDir);
+    case 'pwd':
+      return currentDir;
+    case 'cd':
+      if (args[0] && resolvePath(args[0])) {
+        currentDir = args[0];
+        return '';
+      }
+      return `cd: ${args[0]}: No such file or directory`;
+    case 'mkdir':
+      if (args[0]) {
+        const dir = resolvePath(currentDir);
+        dir.contents[args[0]] = { type: 'dir', contents: {} };
+        return '';
+      }
+      return 'mkdir: missing operand';
+    case 'clear':
+      term.clear();
+      return '';
+    default:
+      return `${command}: command not found`;
+  }
+}
+
+term.writeln('Welcome to the Web Linux Terminal!');
+term.prompt = () => term.write('\nkali@web-terminal:~$ ');
+
+term.prompt();
+term.onKey(({ key, domEvent }) => {
+  const input = term.buffer.active.getLine(term.buffer.active.cursorY).translateToString();
+  if (domEvent.key === 'Enter') {
+    const result = processCommand(input.trim().split('~$ ')[1]);
+    if (result) term.writeln(result);
+    term.prompt();
   }
 });
-
-// Initialize terminal
-let buffer = "";
-displayPrompt();
-
-// Resize terminal on window resize
-window.addEventListener("resize", () => fitAddon.fit());
