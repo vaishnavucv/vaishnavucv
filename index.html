@@ -1,44 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Webhook</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Terminal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #282a36;
+    }
+    #terminal {
+      height: 100vh;
+    }
+  </style>
 </head>
 <body>
-    <h1>Send Message to Discord Webhook</h1>
-    <input type="text" id="message" placeholder="Enter your message">
-    <button onclick="sendMessage()">Send</button>
-
-    <script>
-        async function sendMessage() {
-            const webhookUrl = "https://discord.com/api/webhooks/1300419867874299984/VqKm90a23vknZlpEqizjR8UwhAOWmIEp-FciPS_OJ6tpmuGe6b-2WZ5l1CZlk0eFOAzT";
-            const messageContent = document.getElementById('message').value;
-
-            if (!messageContent) {
-                alert('Please enter a message!');
-                return;
-            }
-
-            const payload = JSON.stringify({ content: messageContent });
-
-            try {
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: payload
-                });
-
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                } else {
-                    alert('Failed to send message!');
-                }
-            } catch (error) {
-                console.error('Error sending webhook:', error);
-                alert('Error sending message!');
-            }
-        }
-    </script>
+  <div id="terminal"></div>
+  <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit/lib/xterm-addon-fit.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
