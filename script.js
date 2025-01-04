@@ -1,43 +1,41 @@
 // script.js
+
+// Import xterm.js
 const { Terminal } = window;
+
+// Create and configure the terminal
 const term = new Terminal({
   theme: {
-    background: "#282a36", // Dracula Background
-    foreground: "#f8f8f2", // Text Color
-    cursor: "#f8f8f2",     // Cursor Color
+    background: "#282a36", // Dracula theme
+    foreground: "#f8f8f2", // Text color
+    cursor: "#f8f8f2",     // Cursor color
   },
 });
 
+// Open the terminal in the div with id "terminal"
 term.open(document.getElementById("terminal"));
 
+// Display a welcome message
+term.writeln("Welcome to the Web Linux Terminal!");
+
+// Simulated file system
 const filesystem = {
   '/': {
     type: 'dir',
     contents: {
       home: { type: 'dir', contents: {} },
-      var: { type: 'dir', contents: {} },
-      etc: { type: 'dir', contents: {} },
-      file1: { type: 'file', content: '' },
+      file1: { type: 'file', content: 'Hello, World!' },
     },
   },
 };
 
 let currentDir = '/';
 
-function listDir(path) {
-  const dir = resolvePath(path);
-  if (dir && dir.type === 'dir') {
-    return Object.keys(dir.contents).join('\n');
-  }
-  return `ls: cannot access '${path}': No such file or directory`;
-}
-
 function resolvePath(path) {
   const parts = path.split('/').filter(Boolean);
   let node = filesystem['/'];
-
   for (const part of parts) {
-    if (node.contents[part]) {
+    if (node.contents && node.contents[part]) {
       node = node.contents[part];
     } else {
       return null;
@@ -46,43 +44,34 @@ function resolvePath(path) {
   return node;
 }
 
-function processCommand(input) {
-  const [command, ...args] = input.split(' ');
-  switch (command) {
+function processCommand(command) {
+  const [cmd, ...args] = command.split(' ');
+  switch (cmd) {
     case 'ls':
-      return listDir(currentDir);
+      return Object.keys(resolvePath(currentDir).contents).join('\n');
     case 'pwd':
       return currentDir;
-    case 'cd':
-      if (args[0] && resolvePath(args[0])) {
-        currentDir = args[0];
-        return '';
-      }
-      return `cd: ${args[0]}: No such file or directory`;
-    case 'mkdir':
-      if (args[0]) {
-        const dir = resolvePath(currentDir);
-        dir.contents[args[0]] = { type: 'dir', contents: {} };
-        return '';
-      }
-      return 'mkdir: missing operand';
     case 'clear':
       term.clear();
       return '';
     default:
-      return `${command}: command not found`;
+      return `${cmd}: command not found`;
   }
 }
 
-term.writeln('Welcome to the Web Linux Terminal!');
-term.prompt = () => term.write('\nkali@web-terminal:~$ ');
+// Handle user input
+term.prompt = () => term.write("\nkali@web-terminal:~$ ");
 
-term.prompt();
 term.onKey(({ key, domEvent }) => {
-  const input = term.buffer.active.getLine(term.buffer.active.cursorY).translateToString();
-  if (domEvent.key === 'Enter') {
-    const result = processCommand(input.trim().split('~$ ')[1]);
-    if (result) term.writeln(result);
+  if (domEvent.key === "Enter") {
+    const input = term.buffer.active.getLine(term.buffer.active.cursorY).translateToString();
+    const command = input.split("~$ ")[1]?.trim();
+    const output = processCommand(command);
+    if (output) term.writeln(output);
     term.prompt();
+  } else {
+    term.write(key);
   }
 });
+
+term.prompt();
