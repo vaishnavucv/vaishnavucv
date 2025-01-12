@@ -4,6 +4,9 @@ A Cyber Security Consultant / VAPT (Vulnerability Assessment and Penetration Tes
 
 ## 🌐 Socials:
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/hack_with_vyshu) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/vaishnavucv) [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white)](https://twitter.com/vaishnavucv) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/vaishnavucv) 
+### Join the Discussion
+- **Discord (Main Source of Support)**: 👉[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/bFkdWjgCdF)
+[![Discord](https://img.shields.io/discord/1171385981501456394)](https://discord.gg/bFkdWjgCdF)
 
 ## 🎩TryHackMe
 <img src="https://tryhackme-badges.s3.amazonaws.com/hackwithvyshu.png" alt="Your Image Badge" />
