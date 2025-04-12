@@ -19,11 +19,12 @@ I blend red teaming intuition with blue team resilience to secure cloud, on-prem
 - 🧱 **Infrastructure Security | Cloud Posture Auditing (AWS, Azure)**
 - 📦 **Dockerized IDS/IPS | Custom Attack Labs | Red/Blue Team Simulations**
 
-## 🚀 Current Projects:
+## 🚀 Projects ERA:
 - 🧠 Building LLM-powered AI Security Assistants
-- 🛡 Developing a Red/Blue Team OS based on Xubuntu
-- 🌐 Leading corporate workshops in ethical hacking and cybersecurity
-- 🛰 CyberSec Mini Apps, API Templates, Secure SaaS & CI/CD integrations
+- ※  A2A powered Autonomous Self-Intelligent Generative Interface Layer [ S.I.G.I.L ]
+- 🛡  CyberRange Development for Red/Blue Team engagements.
+- 🛰  CyberSec Mini Apps, Secure SaaS & CI/CD integrations
+- 🌐 Leading corporate workshops/Live sessions in all Domains in CyberSec
 
 # 💻 Tech Stack
 
