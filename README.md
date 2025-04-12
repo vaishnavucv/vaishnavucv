@@ -11,9 +11,9 @@ I blend red teaming intuition with blue team resilience to secure cloud, on-prem
 > _Engineer by title. Cyberwarrior by choice. Mentor by legacy._
 
 ## 🧠 My Expertise:
-- 🔍 **Web, API & Mobile Penetration Testing**
+- 🔍 **VAPT/Penetration Testing in Web, API, Netwok & Mobile**
 - 🔐 **DevSecOps & AiSecOps Pipeline Development**
-- 🧬 **AI + Cybersecurity Automation**
+- 🧬 **AI + Cybersecurity Automation/Actions**
 - 🛰 **SOC2 Readiness | Threat Intelligence | Malware Analysis**
 - 🧪 **CyberRange Lab Environments for Corporate Training**
 - 🧱 **Infrastructure Security | Cloud Posture Auditing (AWS, Azure)**
