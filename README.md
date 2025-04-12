@@ -1,6 +1,7 @@
+
 # 👨‍💻 Who is [Vaishnavu C V](https://linkedin.com/in/vaishnavucv) ?  aka [`@hackwithvyshu`](https://instagram.com/hack_with_vyshu)
 
-🚨 Principal Cybersecurity Engineer | VAPT & Red Team Specialist | DevSecOps Architect | CyberRange Developer | Mentor & Educator
+※⁜∻ Principal Cybersecurity Engineer | VAPT & Red Team Specialist | DevSecOps Architect | CyberRange Developer | Mentor & Educator
 
 ---
 
@@ -10,7 +11,7 @@ I blend red teaming intuition with blue team resilience to secure cloud, on-prem
 
 > _Engineer by title. Cyberwarrior by choice. Mentor by legacy._
 
-## 🧠 My Expertise:
+## 🧠 My Expertise: <img src="https://github.com/user-attachments/assets/c59d0348-c502-4ce0-bd55-584ad39f582f" width="50" /> 
 - 🔍 **VAPT/Penetration Testing in Web, API, Netwok & Mobile**
 - 🔐 **DevSecOps & AiSecOps Pipeline Development**
 - 🧬 **AI + Cybersecurity Automation/Actions**
@@ -19,14 +20,14 @@ I blend red teaming intuition with blue team resilience to secure cloud, on-prem
 - 🧱 **Infrastructure Security | Cloud Posture Auditing (AWS, Azure)**
 - 📦 **Dockerized IDS/IPS | Custom Attack Labs | Red/Blue Team Simulations**
 
-## 🚀 Projects ERA:
+## 🚀 Projects ERA: <img src="https://github.com/user-attachments/assets/4238e265-916c-4dde-a5d1-6606af48de1f" width="180" />
 - 🧠 Building LLM-powered AI Security Assistants
-- ※  A2A powered Autonomous Self-Intelligent Generative Interface Layer [ S.I.G.I.L ]
-- 🛡  CyberRange Development for Red/Blue Team engagements.
+- ※  A2A powered Autonomous Self-Intelligent Generative Interface Layer [[ S.I.G.I.L ]](https://github.com/vaishnavucv/SIGIL) <img src="https://github.com/user-attachments/assets/39378532-52b8-4114-ab81-531c1a7ec300" width="20" /> 
+- 🛡  CyberRange Development for Red/Blue Team engagements. <img src="https://github.com/user-attachments/assets/ce0ab149-70f4-4baf-bfa9-19c81b6a5785" width="20" /> 
 - 🛰  CyberSec Mini Apps, Secure SaaS & CI/CD integrations
 - 🌐 Leading corporate workshops/Live sessions in all Domains in CyberSec
 
-# 💻 Tech Stack
+# 💻 Tech Stack <img src="https://github.com/user-attachments/assets/4c7fca1f-8ca7-41f0-9dc0-c61d32ecc75d" width="60" /> 
 
 Welcome to the battle deck — here’s the arsenal I deploy across cybersecurity engineering, automation, DevSecOps pipelines, AI integrations, and beyond.
 
