@@ -1,4 +1,4 @@
-# 👨‍💻 Who is Vaishnavu C V? aka @hackwithvyshu
+# 👨‍💻 Who is [Vaishnavu C V](https://linkedin.com/in/vaishnavucv) ?  aka [`@hackwithvyshu`](https://instagram.com/hack_with_vyshu)
 
 🚨 Principal Cybersecurity Engineer | VAPT & Red Team Specialist | DevSecOps Architect | CyberRange Developer | Mentor & Educator
 
@@ -141,11 +141,6 @@ Welcome to the battle deck — here’s the arsenal I deploy across cybersecurit
 [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white)](https://twitter.com/vaishnavucv)
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/hack_with_vyshu)
 [![Discord](https://img.shields.io/discord/1171385981501456394?label=Discord)](https://discord.gg/bFkdWjgCdF)
-
----
-# 📊 GitHub Stats:
-### Profile Count
-[![](https://visitcount.itsvg.in/api?id=vaishnavucv&label=Profile%20Views&color=0&icon=0&pretty=false)](https://visitcount.itsvg.in)
 
 ---
 ###
