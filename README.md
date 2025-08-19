@@ -22,6 +22,7 @@ I blend red teaming intuition with blue team resilience to secure cloud, on-prem
 
 ## 🚀 Projects ERA: <img src="https://github.com/user-attachments/assets/4238e265-916c-4dde-a5d1-6606af48de1f" width="180" />
 - 🧠 Building LLM-powered AI Security Assistants
+- ⁙ A complete journey of 50+1 cybersecurity projects — beginner to expert, ending with a unified Cybersecurity Mega Lab. [[Project-51]](https://github.com/vaishnavucv/Project-51) <img src="https://media.tenor.com/QfwkPMRhiFsAAAAi/asterisk-red-hot-chili-peppers.gif" width="20" />
 - ※  A2A powered Autonomous Self-Intelligent Generative Interface Layer [[ S.I.G.I.L ]](https://github.com/vaishnavucv/SIGIL) <img src="https://github.com/user-attachments/assets/39378532-52b8-4114-ab81-531c1a7ec300" width="20" /> 
 - 🛡  CyberRange Development for Red/Blue Team engagements. <img src="https://github.com/user-attachments/assets/ce0ab149-70f4-4baf-bfa9-19c81b6a5785" width="20" /> 
 - 🛰  CyberSec Mini Apps, Secure SaaS & CI/CD integrations
